@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Book list</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <hr>
+        <h1>List of books</h1>
+        <hr>
+        <div>
+            <div class="row" id="books">
+            </div>
+        </div>
+    </div>
+
+    <div id="editBookModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit Book</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+
+                <div class="modal-body">
+                    <form id="editForm" method="POST">
+                        <div class="form-group">
+                            <label for="ISBN">ISBN</label>
+                            <input class="form-control" name="isbn">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Title">Title</label>
+                            <input class="form-control" name="title">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subtitle">Subtitle</label>
+                            <input class="form-control" name="subtitle">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="author">Author</label>
+                            <input class="form-control" name="author">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="published">Published</label>
+                            <input class="form-control" name="published">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="publisher">Publisher</label>
+                            <input class="form-control" name="publisher">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pages">Pages</label>
+                            <input class="form-control" name="pages">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <input class="form-control" name="description">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="website">Website</label>
+                            <input class="form-control" name="website">
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Our JS file-->
+    <script src="js/book-list.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
