@@ -74,7 +74,7 @@ app.post('/upload-photos', async (req, res) => {
             let data = [];
 
             //loop all files
-            for(_.keysIn(req.files.photos), (key) => {
+            _.forEach(_.keysIn(req.files.photos), (key) => {
                 let photo = req.files.photos[key];
 
                 //move photo to uploads directory
