@@ -32,53 +32,56 @@
                 </div>
 
                 <div class="modal-body">
-                    <form id="editForm" method="POST">
+                    <form id="editForm">
                         <div class="form-group">
                             <label for="ISBN">ISBN</label>
-                            <input class="form-control" name="isbn">
+                            <input class="form-control" name="isbn" id="isbn">
                         </div>
 
                         <div class="form-group">
                             <label for="Title">Title</label>
-                            <input class="form-control" name="title">
+                            <input class="form-control" name="title" id="title">
                         </div>
 
                         <div class="form-group">
                             <label for="subtitle">Subtitle</label>
-                            <input class="form-control" name="subtitle">
+                            <input class="form-control" name="subtitle" id="subtitle">
                         </div>
 
                         <div class="form-group">
                             <label for="author">Author</label>
-                            <input class="form-control" name="author">
+                            <input class="form-control" name="author" id="author">
                         </div>
 
                         <div class="form-group">
                             <label for="published">Published</label>
-                            <input class="form-control" name="published">
+                            <input class="form-control" name="publish_date" id="publish_date">
                         </div>
 
                         <div class="form-group">
                             <label for="publisher">Publisher</label>
-                            <input class="form-control" name="publisher">
+                            <input class="form-control" name="publisher" id="publisher">
                         </div>
 
                         <div class="form-group">
                             <label for="pages">Pages</label>
-                            <input class="form-control" name="pages">
+                            <input class="form-control" name="numOfPages" id="numOfPages">
                         </div>
 
                         <div class="form-group">
                             <label for="description">Description</label>
-                            <input class="form-control" name="description">
+                            <input class="form-control" name="description" id="description">
                         </div>
 
                         <div class="form-group">
                             <label for="website">Website</label>
-                            <input class="form-control" name="website">
+                            <input class="form-control" name="website" id="website">
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="button" class="btn btn-primary" onclick="updateBook()">Submit</button>
+
+                        <input type="hidden" name="old_isbn" id="old_isbn">
+
                     </form>
                 </div>
             </div>
