@@ -13,8 +13,12 @@ let books = [];
 app.use(cors());
 
 // Configuring body parser middleware
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/public/book-list.html');
+});
 
 app.delete('/book/:isbn', (req, res) => {
     // Reading isbn from the URL
@@ -50,7 +54,9 @@ app.get('/book/:isbn', (req, res) => {
 app.put('/book/:isbn', (req, res) => {
     // Reading isbn from the URL
     const isbn = req.params.isbn;
-    const book_data = req.body;
+    let book_data = req.body;
+
+    delete book_data.old_isbn;
 
     // Remove item from the books array
     for (let i = 0; i < books.length; i++) {
@@ -60,17 +66,14 @@ app.put('/book/:isbn', (req, res) => {
         }
     }
 
-    res.send('Book is edited');
+    res.send("Book updated");
 });
 
 app.post('/book', (req, res) => {
     const book = req.body;
-
-    // Output the book to the console for debugging
-    console.log(book);
     books.push(book);
 
-    res.send('Book is added to the database');
+    res.redirect("/");
 });
 
 app.get('/books', (req, res) => {

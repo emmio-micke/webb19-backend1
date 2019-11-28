@@ -11,22 +11,28 @@ const setEditModal = (isbn) => {
 
     const {
         title,
+        subtitle,
         author,
         publisher,
         publish_date,
-        numOfPages
+        numOfPages,
+        description,
+        website
     } = book;
 
     // Filling information about the book in the form inside the modal
     document.getElementById('isbn').value = isbn;
     document.getElementById('title').value = title;
+    document.getElementById('subtitle').value = subtitle;
     document.getElementById('author').value = author;
     document.getElementById('publisher').value = publisher;
     document.getElementById('publish_date').value = publish_date;
     document.getElementById('numOfPages').value = numOfPages;
+    document.getElementById('description').value = description;
+    document.getElementById('website').value = website;
 
     // Setting up the action url for the book
-    document.getElementById('editForm').action = `/book/${isbn}`;
+    //document.getElementById('editForm').action = `/book/${isbn}`;
 }
 
 const updateBook = () => {
@@ -34,16 +40,17 @@ const updateBook = () => {
 
     const isbn = document.getElementById('old_isbn').value;
 
-    var data = new FormData();
-    data.append('isbn', document.getElementById('isbn').value);
-    data.append('title', document.getElementById('title').value);
-    data.append('author', document.getElementById('author').value);
-    data.append('publisher', document.getElementById('publisher').value);
-    data.append('publish_date', document.getElementById('publish_date').value);
-    data.append('numOfPages', document.getElementById('numOfPages').value);
+    let form = document.getElementById("editForm");
+    let data = new FormData(form);
+    let formdata = {};
+
+    for (let item of data.entries()) {
+        formdata[item[0]] = item[1]
+    }
 
     xhttp.open("PUT", `/book/${isbn}`, false);
-    xhttp.send(data);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.send(JSON.stringify(formdata));
 
     // Reloading the page
     location.reload();
@@ -81,7 +88,7 @@ const loadBooks = () => {
 
                         <hr>
 
-                        <button type="button" class="btn btn-danger" onClick="deleteBook(${book.isbn})">Delete</button>
+                        <button type="button" class="btn btn-danger" onClick="deleteBook('${book.isbn}')">Delete</button>
                         <button types="button" class="btn btn-primary" data-toggle="modal"
                             data-target="#editBookModal" onClick="setEditModal(${book.isbn})">
                             Edit
