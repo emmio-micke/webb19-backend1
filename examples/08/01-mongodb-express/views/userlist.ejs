@@ -8,6 +8,7 @@
 
 <body>
     <h1>User List</h1>
+    <p><a href="/newuser">Add user</a></p>
     <table>
         <tr>
             <th>User</th>
@@ -18,7 +19,7 @@
           <tr>
             <td><a href="mailto:<%= userlist[i].email %>"><%= userlist[i].username %></a></td>
             <td><a href="/edituser/<%= userlist[i]._id %>">Edit</a></td>
-            <td><a href="#">Delete</a></td>
+            <td><a href="/deleteuser/<%= userlist[i]._id %>" onclick="return confirm('Are you sure?')">Delete</a></td>
           </tr>
         <% } %>
     </table>

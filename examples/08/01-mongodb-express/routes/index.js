@@ -41,6 +41,23 @@ router.get('/helloworld', function (req, res) {
   res.render('helloworld', { title: 'Hello, World!' });
 });
 
+/* GET delete user. */
+router.get('/deleteuser/:userid', function (req, res) {
+  var db = req.db;
+  var collection = db.get('usercollection');
+
+  collection.remove({ _id: req.params.userid }, function (err, doc) {
+    if (err) {
+      // If it failed, return error
+      res.send("There was a problem deleting the information in the database.");
+    }
+    else {
+      // And forward to success page
+      res.redirect("/userlist");
+    }
+  });
+});
+
 /* GET edit user page. */
 router.get('/edituser/:userid', function (req, res) {
   var db = req.db;
