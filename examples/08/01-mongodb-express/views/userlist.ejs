@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User List</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <h1>User List</h1>
+    <table>
+        <tr>
+            <th>User</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+        <%
+        let list = '';
+        for (let i = 0; i < userlist.length; i++) {
+          list += '<tr><td><a href="mailto:' + userlist[i].email + '">' + userlist[i].username + '</a></td>';
+          list += '<td><a href="#">Edit</a></td>';
+          list += '<td><a href="#">Delete</a></td>';
+          list += '</tr>';
+        }
+      %>
+        <%- list %>
+    </table>
+</body>
+
+</html>
