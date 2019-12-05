@@ -2,24 +2,24 @@
 <html>
 
 <head>
-    <title>Add User</title>
+    <title>Edit User</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel='stylesheet' href='/stylesheets/style.css' />
 </head>
 
 <body>
-    <h1>Add user</h1>
-    <form id="formAddUser" name="adduser" method="post" action="/adduser">
+    <h1>Edit user</h1>
+    <form id="formEditUser" name="edituser" method="post" action="/users/update">
+        <input type="hidden" name="id" value="<%= userdata[0]._id %>">
         <div class="form-group">
-            <label for="inputUserName">Username</label>
-            <input type="text" class="form-control" id="inputUserName" name="username"
-                placeholder="name">
-        </div>
-        <div class="form-group">
+                <label for="inputUserName">Username</label>
+                <input type="text" class="form-control" id="inputUserName" name="username"
+                value="<%= userdata[0].username %>">
+            </div>
+            <div class="form-group">
             <label for="inputUserEmail">Email address</label>
-            <input type="email" class="form-control" id="inputUserEmail" aria-describedby="emailHelp" name="useremail"
-                placeholder="email">
+            <input type="email" class="form-control" id="inputUserEmail" aria-describedby="emailHelp" name="useremail" value="<%= userdata[0].email %>">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
