@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Edit User</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+    <h1>Edit user</h1>
+    <form id="formEditUser" name="edituser" method="post" action="/updateuser">
+        <input type="hidden" name="id" value="<%= userdata[0]._id %>">
+        <input id="inputUserName" type="text" placeholder="username" name="username" value="<%= userdata[0].username %>">
+        <input id="inputUserEmail" type="text" placeholder="email" name="useremail" value="<%= userdata[0].email %>"">
+        <button id="btnSubmit" type="submit">Submit</button>
+    </form>
+    <script>
+        console.log(userdata);
+    </script>
+</body>
+
+</html>

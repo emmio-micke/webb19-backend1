@@ -14,16 +14,13 @@
             <th>Edit</th>
             <th>Delete</th>
         </tr>
-        <%
-        let list = '';
-        for (let i = 0; i < userlist.length; i++) {
-          list += '<tr><td><a href="mailto:' + userlist[i].email + '">' + userlist[i].username + '</a></td>';
-          list += '<td><a href="#">Edit</a></td>';
-          list += '<td><a href="#">Delete</a></td>';
-          list += '</tr>';
-        }
-      %>
-        <%- list %>
+        <% for (let i = 0; i < userlist.length; i++) { %>
+          <tr>
+            <td><a href="mailto:<%= userlist[i].email %>"><%= userlist[i].username %></a></td>
+            <td><a href="/edituser/<%= userlist[i]._id %>">Edit</a></td>
+            <td><a href="#">Delete</a></td>
+          </tr>
+        <% } %>
     </table>
 </body>
 
