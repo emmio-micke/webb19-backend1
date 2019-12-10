@@ -83,11 +83,11 @@ router.post('/update', function (req, res) {
 
   // Get our form values. These rely on the "name" attributes
   let id = req.body.id;
-  var userName = req.body.username;
-  var userEmail = req.body.useremail;
+  let userName = req.body.username;
+  let userEmail = req.body.useremail;
 
   // Set our collection
-  var collection = db.get('usercollection');
+  let collection = db.get('usercollection');
 
   // Submit to the DB
   collection.update({'_id': id}, {
