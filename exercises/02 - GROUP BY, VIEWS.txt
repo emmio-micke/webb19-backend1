@@ -1,4 +1,5 @@
 Använd exempeldatabasen classicmodels för följande uppgifter, där inget annat nämns.
+
 1. Lista produktnamnet och ordervärdet för varje orderrad.
 
 2. Lista ordernummer och det sammanlagda ordervärdet för varje order.
